@@ -14,11 +14,11 @@ body {
     width: auto;
 } 
 
-.HeadImG {
+.HeadImg {
     color:red;
     width:100%;
     height:100px;
-    background-image: url(/static/img/string.jpg) no-repeat;
+    background-image: url(/static/img/string.jpg);
 }
 /*
  .content {
