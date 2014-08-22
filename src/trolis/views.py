@@ -12,6 +12,10 @@ def vomax_view(request):
     kontekstas['vardai'].append('Lina')
     return render(request, 'manozodynas/vomax.html', kontekstas)
 
+def trolis_view(request):
+    return render(request, 'manozodynas/trolis.html')
+
+
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)

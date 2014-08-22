@@ -8,6 +8,7 @@ from .views import *
 urlpatterns = patterns('',
     url(r'^$', index_view, name='index'),
     url(r'^vomax/$', vomax_view, name='vomax'),
+    url(r'^trolis/$', trolis_view, name='trolis'),
     url(r'^login/$', login_view, name='login'),
 )
 
