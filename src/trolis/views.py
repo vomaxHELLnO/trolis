@@ -5,15 +5,15 @@ from .forms import LoginForm
 from django.contrib.auth import login
 
 def index_view(request):
-    return render(request, 'manozodynas/index.html', {})
+    return render(request, 'trolis/index.html', {})
 
 def vomax_view(request):
     kontekstas = {'vardai': ['Vita', 'Evalina']}
     kontekstas['vardai'].append('Lina')
-    return render(request, 'manozodynas/vomax.html', kontekstas)
+    return render(request, 'trolis/vomax.html', kontekstas)
 
 def trolis_view(request):
-    return render(request, 'manozodynas/trolis.html')
+    return render(request, 'trolis/trolis.html')
 
 
 def login_view(request):
@@ -27,4 +27,4 @@ def login_view(request):
     else:
         form = LoginForm()
     #import ipdb; ipdb.set_trace()
-    return render(request, 'manozodynas/login.html', {'form':form})
+    return render(request, 'trolis/login.html', {'form':form})
