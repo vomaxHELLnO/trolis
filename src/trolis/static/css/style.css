@@ -1,0 +1,20 @@
+.content {
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.A {
+    color: green;
+    padding: 20px;
+}
+
+p.A {
+    background-color: black;
+}
+
+a img#invisible-cat {
+    width:200px;
+    border:3px solid #021a40;
+    padding:3px;
+    margin: 3px;
+}
