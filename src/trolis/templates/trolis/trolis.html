@@ -21,9 +21,42 @@
   </head>
 
   <body role="document">
+    <!-- <div class="row">
+        <div class="col-md-offset-1 col-md-4">
+            Text
+        </div>
+      </div> -->
     
-    <div class="HeadImg"> 
-        <a> kebab </a>ddd
+
+    <div class="HeadImg center-content"> 
+        <select>
+            <option>Admin</option>
+            <option>Jonas</option>
+        </select>
+        <a> kebab </a>
+
+
+        <div class="pull-right">
+            <form method='post' action='.'>{% csrf_token %}
+                <div class="pull-right">
+                    <input class='login-input' type="text" name="username"></input>
+                    <input class='login-input' type="password" name="password"></input>
+                    <button class="login-btn">{% if user.is_authenticated %}Log out{% else %}Login{% endif %}</button>
+                <div style='position:absolute;'>
+                    <div style='position: relative; top: -43px; right: -280px;'>
+                        <span style='color: {% if user.is_authenticated %}green{% else %}#CC3333{% endif %};' class="glyphicon glyphicon-asterisk"></span>
+                    </div>
+                </div>
+                </div>
+                <br/>
+                <div class="pull-right">
+                    <p>{% if message %}
+                        {{ message }}
+                    {% endif %}
+                    <button class="login-btn">Register</button></p>
+              </div>
+            </form>
+        </div>
     </div>
    
     <!-- Fixed navbar -->
@@ -63,17 +96,28 @@
     <div class="container theme-showcase" role="main">
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+      <div class="middle-list">
+        <div class="col-sm-offset-2 col-sm-5" style='text-align: center;'>
+            <h1>Title</h1>
+        </div>
+        <div class="side-list">
+        <div class="col-sm-offset-7 col-sm-4">
+          <div class="list-group">
+          {% for list_object in list_objects %}
+              <a href="#" class="list-group-item "> <!--active -->
+                  <h4 class="list-group-item-heading">{{ list_object.title }}</h4>
+                  <p class="list-group-item-text">{{ list_object.text }}</p>
+            </a>
+          {% endfor %}
+          </div>
+        </div><!-- /.col-sm-4 -->
+        </div>
+
       </div>
 
 
-
-      <div class="page-header">
+      <div class="page-header col-sm-12">
         <h1>Buttons</h1>
-      </div>
       <p>
         <button type="button" class="btn btn-lg btn-default">Default</button>
         <button type="button" class="btn btn-lg btn-primary">Primary</button>
@@ -183,6 +227,7 @@
         </div><!-- /.col-sm-4 -->
       </div>
 
+    </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
