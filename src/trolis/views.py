@@ -2,7 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .forms import LoginForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.models import User
+from .models import ListObject
+
 
 def index_view(request):
     return render(request, 'trolis/index.html', {})
@@ -13,7 +16,23 @@ def vomax_view(request):
     return render(request, 'trolis/vomax.html', kontekstas)
 
 def trolis_view(request):
-    return render(request, 'trolis/trolis.html')
+    message = ''
+    if request.POST:
+        if request.user.is_authenticated():
+            logout(request)
+        else:
+            if not request.POST.get('username') or not request.POST.get('password'):
+                message = u'Your username or password was entered incorrectly'
+            else:
+                username = request.POST.get('username')
+                password = request.POST.get('password')
+                user = authenticate(username=username, password=password)
+                if user is not None and user.is_active:
+                    login(request, user)
+    return render(request, 'trolis/trolis.html', {
+        'list_objects': ListObject.objects.all(),
+        'message': message,
+    })
 
 
 def login_view(request):
