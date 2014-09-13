@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Theme Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="/static/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+  </head>
+
+  <body role="document">
+    <!-- <div class="row">
+        <div class="col-md-offset-1 col-md-4">
+            Text
+        </div>
+      </div> -->
+    
+    <div id="video" style='position: absolute; top: 0; left:0; z-index:-1;'>
+        <video style='position: relative; top: 0; left:0;'  width="1300" preload="true" autoplay="" loop="">
+            <source src="http://174.36.223.28/video1107/original.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;"></source>
+            <source src="http://174.36.223.28/video1107/original.webm" type="video/webm; codecs=&quot;vp8.0, vorbis&quot;"></source>
+        </video>
+    </div>
+
+    <div class="footer" style='text-align: center;'>
+        (C) 
+    </div>
+
+    <div class="HeadImg center-content"> 
+        <select>
+            <option>Admin</option>
+            <option>Jonas</option>
+        </select>
+        <a> kebab </a>
+
+
+        <div class="pull-right">
+            <form method='post' action='.'>{% csrf_token %}
+                <div class="pull-right">
+                    <input class='login-input' type="text" name="username"></input>
+                    <input class='login-input' type="password" name="password"></input>
+                    <button class="login-btn">{% if user.is_authenticated %}Log out{% else %}Login{% endif %}</button>
+                <div style='position:absolute;'>
+                    <div style='position: relative; top: -43px; right: -280px;'>
+                        <span style='color: {% if user.is_authenticated %}green{% else %}#CC3333{% endif %};' class="glyphicon glyphicon-asterisk"></span>
+                    </div>
+                </div>
+                </div>
+                <br/>
+                <div class="pull-right">
+                    <p>{% if message %}
+                        {{ message }}
+                    {% endif %}
+                    <button class="login-btn">Register</button></p>
+              </div>
+            </form>
+        </div>
+    </div>
+
+    {% block content %} 
+    {% endblock %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/test.js"></script>
+  </body>
+</html>
