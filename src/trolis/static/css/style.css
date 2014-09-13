@@ -15,9 +15,22 @@ body {
 } 
 
 .HeadImg {
+    position: fixed;
     color:red;
     width:100%;
     height:100px;
+    background-image: url(/static/img/string.jpg);
+}
+
+.title {
+    margin-top: 100px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    height:50px;
     background-image: url(/static/img/string.jpg);
 }
 
@@ -26,6 +39,7 @@ body {
     /* max-width: 800px; */
     max-width: 100%;
     padding: 20px; 
+    z-index: 200;
 }
 
 .login-input {

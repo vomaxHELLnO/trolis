@@ -8,6 +8,7 @@ from .models import ListObject
 from datetime import datetime
 
 
+
 def index_view(request):
     return render(request, 'trolis/index.html', {})
 
@@ -36,6 +37,8 @@ def trolis_view(request):
         'time': datetime.now(),
     })
 
+def checkers_view(request):
+    return render(request, 'trolis/checkers.html', {})
 
 def login_view(request):
     if request.method == 'POST':

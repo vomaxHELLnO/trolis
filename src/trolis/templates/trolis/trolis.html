@@ -31,6 +31,10 @@
         </video>
     </div>
 
+    <div class="footer" style='text-align: center;'>
+        (C) 
+    </div>
+
     <div class="HeadImg center-content"> 
         <select>
             <option>Admin</option>
@@ -100,14 +104,25 @@
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="middle-list">
-        <div class="col-sm-offset-2 col-sm-5" style='text-align: center;'>
+        <div class="title col-sm-12" style='text-align: center;'>
             <h1>Title</h1>
         </div>
         <div class="side-list">
-        <div class="col-sm-offset-1 col-sm-6">
-            <button class="btn btn-sm btn-default" style="margin-top: 20px">Home</button>
-            <button class="btn btn-sm btn-default" style="margin-top: 20px">About</button><br/>
-            <button class="btn btn-success btn-lg" style="margin-top: 10px; width: 110px;">Chess</button>
+        <div class="col-sm-offset-1 col-sm-3">
+            <div  style='width: 140px;'>
+                <button class="btn btn-sm btn-default" style="margin-top: 20px; width: 48%">Home</button>
+                <button class="btn btn-sm btn-default" style="margin-top: 20px; width: 48%">About</button><br/>
+                <a href="{% url 'checkers' %}"><button class="btn btn-success btn-lg" style="margin-top: 10px; width: 100%;">Checkers</button></a>
+                <button class="btn btn-default btn-sm" style="margin-top: 5px; width: 100%;">Team1<button>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div  style='width: 140px;'>
+                <button class="btn btn-sm btn-default" style="margin-top: 20px; width: 48%">Galery</button>
+                <button class="btn btn-sm btn-default" style="margin-top: 20px; width: 48%">Contacts</button><br/>
+                <button class="btn btn-success btn-lg" style="margin-top: 10px; width: 100%;">Chess</button>
+                <button class="btn btn-default btn-sm" style="margin-top: 5px; width: 100%;">Team2<button>
+            </div>
         </div>
         <div class="col-sm-4">
           <div class="list-group">
@@ -127,6 +142,7 @@
         </div>
 
       </div>
+
 
     <!--
       <div class="page-header col-sm-12">
