@@ -15,9 +15,6 @@
     <!-- Bootstrap theme -->
     <link href="/static/css/bootstrap-theme.css" rel="stylesheet">
     <link href="/static/css/style.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="theme.css" rel="stylesheet">
   </head>
 
   <body role="document">
@@ -27,13 +24,11 @@
         </div>
       </div> -->
     
-    <div style='position: absolute; z-index:-1;'>
-    <div id="video">
-        <video height="975" width="1300" preload="true" autoplay="" loop="">
+    <div id="video" style='position: absolute; top: 0; left:0; z-index:-1;'>
+        <video style='position: relative; top: 0; left:0;'  width="1300" preload="true" autoplay="" loop="">
             <source src="http://174.36.223.28/video1107/original.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;"></source>
             <source src="http://174.36.223.28/video1107/original.webm" type="video/webm; codecs=&quot;vp8.0, vorbis&quot;"></source>
         </video>
-    </div>
     </div>
 
     <div class="HeadImg center-content"> 
@@ -67,7 +62,7 @@
         </div>
     </div>
    
-    <!-- Fixed navbar -->
+    <!-- Fixed navbar 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -97,10 +92,10 @@
               </ul>
             </li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </div>
-
+-->
     <div class="container theme-showcase" role="main">
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -109,21 +104,31 @@
             <h1>Title</h1>
         </div>
         <div class="side-list">
-        <div class="col-sm-offset-7 col-sm-4">
+        <div class="col-sm-offset-1 col-sm-6">
+            <button class="btn btn-sm btn-default" style="margin-top: 20px">Home</button>
+            <button class="btn btn-sm btn-default" style="margin-top: 20px">About</button><br/>
+            <button class="btn btn-success btn-lg" style="margin-top: 10px; width: 110px;">Chess</button>
+        </div>
+        <div class="col-sm-4">
           <div class="list-group">
+              <a href="#" class="list-group-item active">
+                  <h4 class="list-group-item-heading">Data: {{ time|date:"Y-m-d" }}</h4>
+              </a>
           {% for list_object in list_objects %}
               <a href="#" class="list-group-item "> <!--active -->
                   <h4 class="list-group-item-heading">{{ list_object.title }}</h4>
                   <p class="list-group-item-text">{{ list_object.text }}</p>
-            </a>
+              </a>
           {% endfor %}
+          <div style="margin: 20px; float: right;">
+            <button id='exit-button' class="btn btn-danger">Exit</button>
           </div>
         </div><!-- /.col-sm-4 -->
         </div>
 
       </div>
 
-
+    <!--
       <div class="page-header col-sm-12">
         <h1>Buttons</h1>
       <p>
@@ -205,7 +210,7 @@
             <li class="list-group-item">Porta ac consectetur ac</li>
             <li class="list-group-item">Vestibulum at eros</li>
           </ul>
-        </div><!-- /.col-sm-4 -->
+        </div>
         <div class="col-sm-4">
           <div class="list-group">
             <a href="#" class="list-group-item active">
@@ -216,7 +221,7 @@
             <a href="#" class="list-group-item">Porta ac consectetur ac</a>
             <a href="#" class="list-group-item">Vestibulum at eros</a>
           </div>
-        </div><!-- /.col-sm-4 -->
+        </div>
         <div class="col-sm-4">
           <div class="list-group">
             <a href="#" class="list-group-item active">
@@ -232,8 +237,8 @@
               <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
             </a>
           </div>
-        </div><!-- /.col-sm-4 -->
-      </div>
+        </div>
+        </div> -->
 
     </div>
     <!-- Bootstrap core JavaScript
@@ -241,5 +246,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/test.js"></script>
   </body>
 </html>

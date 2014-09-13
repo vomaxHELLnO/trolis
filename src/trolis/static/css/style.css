@@ -1,5 +1,5 @@
 body {
-    padding-top: 70px;
+    /* padding-top: 70px; */
     padding-bottom: 30px;
 }
 .theme-dropdown .dropdown-menu {
@@ -23,7 +23,8 @@ body {
 
 .center-content {
     margin: 0 auto;
-    max-width: 800px;
+    /* max-width: 800px; */
+    max-width: 100%;
     padding: 20px; 
 }
 

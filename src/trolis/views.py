@@ -5,6 +5,7 @@ from .forms import LoginForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from .models import ListObject
+from datetime import datetime
 
 
 def index_view(request):
@@ -32,6 +33,7 @@ def trolis_view(request):
     return render(request, 'trolis/trolis.html', {
         'list_objects': ListObject.objects.all(),
         'message': message,
+        'time': datetime.now(),
     })
 
 
