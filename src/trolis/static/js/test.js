@@ -10,6 +10,7 @@ $( document ).ready(function() {
     });
 
 
+    $(".checker").draggable();
     $("#video video").width($(window).width());
     $(window).resize(function() {
         $("#video video").width($(window).width());
