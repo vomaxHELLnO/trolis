@@ -10,7 +10,11 @@ $( document ).ready(function() {
     });
 
     $(".checker").draggable({revert: "invalid"});
-    $(".droppable").droppable();
+    $(".droppable").droppable({
+        drop: function( event, ui ) {
+            ui.draggable.offset($(this).offset());
+        }
+    });
 
     $("#video video").width($(window).width());
     $(window).resize(function() {
