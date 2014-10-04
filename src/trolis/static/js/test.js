@@ -10,7 +10,8 @@ $( document ).ready(function() {
     });
 
 
-    $(".checker").draggable();
+    $(".checker").draggable({revert: "invalid"});
+    $(".board").droppable();
     $("#video video").width($(window).width());
     $(window).resize(function() {
         $("#video video").width($(window).width());

@@ -56,6 +56,22 @@ body {
     margin-top: 0px;
 }
 
+.checker {
+    width: 50px;
+    z-index: 300;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+.board {
+    position: relative;
+    top: 0px;
+    width: 416px;
+    height: 416px;
+}
+
+
 /*
  
  .A {
