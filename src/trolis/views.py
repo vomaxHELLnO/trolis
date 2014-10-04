@@ -38,7 +38,13 @@ def trolis_view(request):
     })
 
 def checkers_view(request):
-    return render(request, 'trolis/checkers.html', {})
+    checkers_table_squares = []
+    for i in range(8):
+        row = []
+        for j in range(8):
+            row.append({'x': 52*i + 145, 'y': 52*j + 250})
+        checkers_table_squares.append(row);
+    return render(request, 'trolis/checkers.html', {'coord': checkers_table_squares})
 
 def login_view(request):
     if request.method == 'POST':

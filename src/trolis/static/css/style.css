@@ -71,7 +71,27 @@ body {
     height: 416px;
 }
 
+/*cia gyves pati geriausi raudonas langelis*/
+.square_red {
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    background-color: red;
+}
 
+.square_white {
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    background-color: white;
+}
+
+.square_black{
+   width: 52px;
+   height: 52px;
+   position: absolute;
+   background-color: black; 
+}  
 /*
  
  .A {

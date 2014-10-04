@@ -1,9 +1,17 @@
 {% extends 'trolis/base.html' %}
 {% block content %}
 <div style="text-align: center; ">
-    <div style="padding-top: 105px; width: 416px; height: 416px; margin-right: auto; margin-left: auto;">
-        <img class='checker' src="/static/img/white.png">
-        <img class='board' src="/static/img/checkers.jpg">
+    <!-- <img class='checker' src="/static/img/white.png">
+    <img class='board' src="/static/img/checkers.jpg"> -->
+    <div style="padding-top: 145px; width: 416px; height: 416px; margin-right: auto; margin-left: auto;">
+        <!-- <div class="square_white">
+        </div>-->
+        {% for row in coord %}
+            {% for xy in row %}
+            <div class = "square_white" style="top: {{xy.x}}px;
+                left:{{xy.y}}px"></div>
+            {% endfor %}
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
