@@ -83,14 +83,14 @@ body {
     width: 52px;
     height: 52px;
     position: absolute;
-    background-color: white;
+    /*background-color: white;*/
 }
 
 .square_black{
    width: 52px;
    height: 52px;
    position: absolute;
-   background-color: black; 
+   background-color: brown; 
 }  
 /*
  

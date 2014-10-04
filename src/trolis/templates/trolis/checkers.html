@@ -1,17 +1,20 @@
 {% extends 'trolis/base.html' %}
 {% block content %}
 <div style="text-align: center; ">
-    <!-- <img class='checker' src="/static/img/white.png">
-    <img class='board' src="/static/img/checkers.jpg"> -->
-    <div style="padding-top: 145px; width: 416px; height: 416px; margin-right: auto; margin-left: auto;">
-        <!-- <div class="square_white">
-        </div>-->
+    <div style="top: 145px; width: 416px; height: 416px; margin-right: auto; margin-left: auto; position:relative;">
         {% for row in coord %}
             {% for xy in row %}
-            <div class="square_{{xy.c}}" style="top: {{xy.x}}px;
-                left:{{xy.y}}px"></div>
+            <div class="square_{{xy.c}} {% if xy.c == 'black' %}droppable{% endif %}"
+                                             style="top: {{xy.x}}px; left:{{xy.y}}px">
+                {% if xy.checker == 'b' %}
+                    <img class='checker' src="/static/img/black_checker.png">
+                {% elif xy.checker == 'w' %}
+                    <img class='checker' src="/static/img/white_checker.png">
+                {% endif %}
+            </div>
             {% endfor %}
         {% endfor %}
+        <!-- <div class="square_red droppable" style='top: 245px; left: 500px;'></div> -->
     </div>
 </div>
 {% endblock %}

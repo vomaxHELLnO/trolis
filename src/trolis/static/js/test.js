@@ -9,9 +9,9 @@ $( document ).ready(function() {
         window.close();
     });
 
-
     $(".checker").draggable({revert: "invalid"});
-    $(".board").droppable();
+    $(".droppable").droppable();
+
     $("#video video").width($(window).width());
     $(window).resize(function() {
         $("#video video").width($(window).width());

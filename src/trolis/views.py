@@ -46,7 +46,13 @@ def checkers_view(request):
             color = 'white'
             if c % 2 == 1:
                 color = 'black'
-            row.append({'x': 52*i + 145, 'y': 52*j + 250, 'c': color})
+            checker = ''
+            if color == 'black':
+                if i < 3:
+                    checker = 'w'
+                if i > 4:
+                    checker = 'b'
+            row.append({'x': 52*i, 'y': 52*j, 'c': color, 'checker': checker})
         checkers_table_squares.append(row);
     return render(request, 'trolis/checkers.html', {'coord': checkers_table_squares})
 
