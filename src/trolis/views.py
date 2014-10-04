@@ -42,7 +42,11 @@ def checkers_view(request):
     for i in range(8):
         row = []
         for j in range(8):
-            row.append({'x': 52*i + 145, 'y': 52*j + 250})
+            c = i + j
+            color = 'white'
+            if c % 2 == 1:
+                color = 'black'
+            row.append({'x': 52*i + 145, 'y': 52*j + 250, 'c': color})
         checkers_table_squares.append(row);
     return render(request, 'trolis/checkers.html', {'coord': checkers_table_squares})
 

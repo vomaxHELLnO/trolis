@@ -8,7 +8,7 @@
         </div>-->
         {% for row in coord %}
             {% for xy in row %}
-            <div class = "square_white" style="top: {{xy.x}}px;
+            <div class="square_{{xy.c}}" style="top: {{xy.x}}px;
                 left:{{xy.y}}px"></div>
             {% endfor %}
         {% endfor %}
