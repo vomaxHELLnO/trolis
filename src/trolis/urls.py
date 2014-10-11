@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^vomax/$', vomax_view, name='vomax'),
     url(r'^trolis/$', trolis_view, name='trolis'),
     url(r'^login/$', login_view, name='login'),
+    url(r'^logout/$', logout_view, name='logout'),
     url(r'^checkers/$', checkers_view, name='checkers'),
 )
 

@@ -68,3 +68,7 @@ def login_view(request):
         form = LoginForm()
     #import ipdb; ipdb.set_trace()
     return render(request, 'trolis/login.html', {'form':form})
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))

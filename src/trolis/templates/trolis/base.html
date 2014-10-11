@@ -45,7 +45,7 @@
 
 
         <div class="pull-right">
-            <form method='post' action='.'>{% csrf_token %}
+            <form method='post' action='{% if user.is_authenticated %}{% url 'logout' %}{% else %}{% url 'login' %}{% endif %}'>{% csrf_token %}
                 <div class="pull-right">
                     <input class='login-input' type="text" name="username"></input>
                     <input class='login-input' type="password" name="password"></input>
