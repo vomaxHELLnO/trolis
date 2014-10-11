@@ -47,9 +47,14 @@
         <div class="pull-right">
             <form method='post' action='{% if user.is_authenticated %}{% url 'logout' %}{% else %}{% url 'login' %}{% endif %}'>{% csrf_token %}
                 <div class="pull-right">
-                    <input class='login-input' type="text" name="username"></input>
-                    <input class='login-input' type="password" name="password"></input>
-                    <button class="login-btn">{% if user.is_authenticated %}Log out{% else %}Login{% endif %}</button>
+                    {% if user.is_authenticated %}
+                        <a href="#">{{ user.username }}</a>
+                        <button class="login-btn">Log out</button>
+                    {% else %}
+                        <input class='login-input' type="text" name="username"></input>
+                        <input class='login-input' type="password" name="password"></input>
+                        <button class="login-btn">Login</button>
+                    {% endif %}
                 <div style='position:absolute;'>
                     <div style='position: relative; top: -43px; right: -280px;'>
                         <span style='color: {% if user.is_authenticated %}green{% else %}#CC3333{% endif %};' class="glyphicon glyphicon-asterisk"></span>
