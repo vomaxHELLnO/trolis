@@ -1,12 +1,40 @@
+# coding: utf-8
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .forms import LoginForm
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.models import User
-from .models import ListObject
+# from django.contrib.auth.models import User
+from .models import ListObject, CheckerGame, User
 from datetime import datetime
 
+
+def play_checkers_view(request):
+    user = User.objects.get(pk=request.user.pk)
+    if not User.objects.filter(status=2).exclude(pk=user.pk).exists():
+        m = u'Po kurio laiko perkraukite puslapį žaidimas gal jau bus prasidėjęs'
+        return render(request, 'trolis/checkers.html', {'message': m})
+
+    oponent = User.objects.filter(status=2).exclude(pk=user.pk)[0]
+    g = CheckerGame.objects.create(white=oponent, black=user, p1_turn=True, moves='', over=False)
+
+    board = list(g.board)
+    board.reverse()
+    coord = []
+
+    for i in range(8):
+        row = []
+        for j in range(8):
+            c = i + j
+            color = 'white'
+            if c % 2 == 1:
+                color = 'black'
+            checker = ''
+            if color == 'black':
+                checker = board.pop()
+            row.append({'x': 52*i, 'y': 52*j, 'square_color': color, 'checker': checker})
+        coord.append(row);
+    return render(request, 'trolis/checkers.html', {'game': g, 'coord': coord, 'user_color': 'black'})
 
 
 def index_view(request):
@@ -38,7 +66,7 @@ def trolis_view(request):
     })
 
 def checkers_view(request):
-    checkers_table_squares = []
+    checkers_table_squares = []   # board --> checkers_talbe_squareds
     for i in range(8):
         row = []
         for j in range(8):
@@ -52,7 +80,7 @@ def checkers_view(request):
                     checker = 'w'
                 if i > 4:
                     checker = 'b'
-            row.append({'x': 52*i, 'y': 52*j, 'c': color, 'checker': checker})
+            row.append({'x': 52*i, 'y': 52*j, 'square_color': color, 'checker': checker})
         checkers_table_squares.append(row);
     return render(request, 'trolis/checkers.html', {'coord': checkers_table_squares})
 
@@ -66,7 +94,6 @@ def login_view(request):
                 return HttpResponseRedirect(reverse('index'))
     else:
         form = LoginForm()
-    #import ipdb; ipdb.set_trace()
     return render(request, 'trolis/login.html', {'form':form})
 
 def logout_view(request):

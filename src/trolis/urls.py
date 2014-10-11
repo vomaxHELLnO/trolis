@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^login/$', login_view, name='login'),
     url(r'^logout/$', logout_view, name='logout'),
     url(r'^checkers/$', checkers_view, name='checkers'),
+    url(r'^play_checkers/$', play_checkers_view, name='checkers'),
 )
 
 urlpatterns += staticfiles_urlpatterns()

@@ -4,12 +4,16 @@
     <div style="top: 145px; width: 416px; height: 416px; margin-right: auto; margin-left: auto; position:relative;">
         {% for row in coord %}
             {% for xy in row %}
-            <div class="square_{{xy.c}} {% if xy.c == 'black' %}droppable{% endif %}"
+            <div class="square_{{xy.square_color}} {% if xy.square_color == 'black' %}droppable{% endif %}"
                                              style="top: {{xy.x}}px; left:{{xy.y}}px">
                 {% if xy.checker == 'b' %}
                     <img class='checker' src="/static/img/black_checker.png">
                 {% elif xy.checker == 'w' %}
                     <img class='checker' src="/static/img/white_checker.png">
+                {% elif xy.checker == 'B' %}
+                    <img class='checker' src="/static/img/black_queen_checker.png">
+                {% elif xy.checker == 'W' %}
+                    <img class='checker' src="/static/img/white_queen_checker.png">
                 {% endif %}
             </div>
             {% endfor %}
