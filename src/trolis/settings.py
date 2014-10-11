@@ -125,7 +125,7 @@ INTERNAL_IPS = (
     '127.0.0.1',
 )
 
-# AUTH_USER_MODEL = ".User"
+AUTH_USER_MODEL = "trolis.User"
 
 # Email configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
