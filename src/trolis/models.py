@@ -10,13 +10,13 @@ class ListObject(models.Model):
     title = models.TextField()
     text = models.TextField()
 
-class Game(models.Model):
-    white = models.ForeignKey('User', related_name='games_white')
-    black = models.ForeignKey('User', related_name='games_balck')
-    p1_turn = models.BooleanField()
-    over = models.BooleanField()
-    board = models.TextField()
-    moves = models.TextField()
+class CheckerGame(models.Model):
+    white = models.ForeignKey('User', related_name='checkers_white')
+    black = models.ForeignKey('User', related_name='checkers_balck')
+    p1_turn = models.BooleanField(default=True)
+    over = models.BooleanField(default=False)
+    board = models.TextField(default='wwwWwwwWwwWW        bbbBbbbBbbbB')
+    moves = models.TextField(default='')
 
 class User(AbstractBaseUser, PermissionsMixin):
     status = models.IntegerField(default=0)
